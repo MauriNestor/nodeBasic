@@ -115,3 +115,45 @@ fs.readFile('./archivo2.txt', 'utf-8')
 
 ```
 - `promisifile` para convertir a promesa si no diera en un modulo nativo, no es recomendable
+
+- `async -await` hay 2 tipos : asincrono secuencial, asincrono en paraleo
+
+1. secuencial.- Las tareas se ejecutan de manera asíncrona, pero el código espera que cada una termine antes de comenzar la siguiente. Ejemplo con `async/await`:
+
+```
+    async function secuencial() {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("Primero");
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("Segundo");
+    }
+    secuencial();
+    // Output después de 2 segundos: Primero, Segundo
+
+```
+
+2. paralelo:  Las tareas se ejecutan simultáneamente sin bloquearse unas a otras. Ejemplo con `Promise.all`:
+
+```
+async function paralelo() {
+  await Promise.all([
+    new Promise((resolve) => setTimeout(() => { console.log("Primero"); resolve(); }, 1000)),
+    new Promise((resolve) => setTimeout(() => { console.log("Segundo"); resolve(); }, 1000)),
+  ]);
+}
+paralelo();
+// Output después de 1 segundo: Primero, Segundo (simultáneos)
+
+```
+3. bonus: concurrente es como el ejemplo 4, el orden de los resultados no esta garantizado.
+- // IIFE - Inmediatly Invoked Function Expression (funcion anonima llamada al instante)
+ 
+
+ - se usa el modulo de `path`, para saber extensiones, archivos, rutas etc
+- `path`: Se usa en rutas o comandos para trabajar en diferentes directorios.
+- objeto global `process`: 
+```
+process.cwd(): muestra el directorio de trabajo actual.
+process.env.PEPITO: accede a una variable de entorno llamada PEPITO.
+```
+
