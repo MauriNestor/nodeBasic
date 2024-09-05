@@ -156,4 +156,5 @@ paralelo();
 process.cwd(): muestra el directorio de trabajo actual.
 process.env.PEPITO: accede a una variable de entorno llamada PEPITO.
 ```
-
+- module `http`: 
+- module `net` para tcp
