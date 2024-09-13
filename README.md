@@ -157,4 +157,132 @@ process.cwd(): muestra el directorio de trabajo actual.
 process.env.PEPITO: accede a una variable de entorno llamada PEPITO.
 ```
 - module `http`: 
-- module `net` para tcp
+- module `net` para 
+
+## Clase 2
+- types of status code
+- watch(experimental) o usar Nodemon aunq es mas lento
+- `headers`:  ejemplos de distintos tipos de rutas
+- `buffer`: clase global para trabjar datos binarios, util para lo q sea q no sea numero, cadenas de texto o json
+
+### servidor
+- `get`con node puro:
+```
+const http = require('http');
+
+// Crear un servidor HTTP
+const server = http.createServer((req, res) => {
+  if (req.method === 'GET' && req.url === '/') {
+    // Configurar la cabecera de la respuesta
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+
+    // Enviar la respuesta
+    res.end('Hello, World!\n');
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found\n');
+  }
+});
+
+// Escuchar en el puerto 3000
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/');
+});
+
+```
+- `POST` node puro:
+```
+const http = require('http');
+
+// Crear un servidor HTTP
+const server = http.createServer((req, res) => {
+  if (req.method === 'POST' && req.url === '/submit') {
+    let body = '';
+
+    // Recibir los datos en partes
+    req.on('data', chunk => {
+      body += chunk.toString(); // Convertir el buffer a string
+    });
+
+    // Cuando todos los datos han sido recibidos
+    req.on('end', () => {
+      // Responder con los datos recibidos
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(`{"received": ${body}}`);
+    });
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not Found\n');
+  }
+});
+
+// Escuchar en el puerto 3000
+server.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/');
+});
+
+```
+## Express
+1. middlewares: previo a tratar la request, algo en medio de la request y la respuesta, something like a proxy
+2. Los middlewares son funciones en Node.js que se ejecutan durante el ciclo de vida de una solicitud HTTP, antes de que llegue al controlador de ruta o después de que se haya procesado la respuesta. Los middlewares pueden realizar diversas tareas como autenticación, manejo de errores, registro de solicitudes, entre otras.
+3. ya viene echo el middlewares
+```
+const express = require('express');
+const app = express();
+
+// Middleware global para registrar todas las solicitudes
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next(); // Pasa al siguiente middleware o ruta
+});
+
+// Middleware para analizar el cuerpo de las solicitudes como JSON
+app.use(express.json());
+
+// Ruta GET
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
+// Ruta POST
+app.post('/submit', (req, res) => {
+  const receivedData = req.body;
+  res.json({ received: receivedData });
+});
+
+// Middleware para manejar errores (debe ir al final)
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
+// Escuchar en el puerto 3000
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000/');
+});
+
+```
+### API REST (video 3)
+- `path to regexp`: permite que las rutas en tu aplicación puedan tener partes variables (como IDs, nombres, etc.) y que esas partes dinámicas sean capturadas fácilmente.
+1. ruta con parametro dinamico
+```
+const express = require('express');
+const app = express();
+
+// Ruta con un parámetro dinámico :id
+app.get('/usuarios/:id', (req, res) => {
+  const idUsuario = req.params.id; // Captura el valor del parámetro dinámico
+  res.send(`Usuario con ID: ${idUsuario}`);
+});
+
+app.listen(3000, () => {
+  console.log('Servidor corriendo en puerto 3000');
+});
+
+```
+
+- diferencias entre POST, PUT PATCH
+`idempotencia`: propiedad de realizar una accion determinada varias veces y aun asi conseguir siempre el mismo resultado q se obtendria al hacerlo una vez
+1. POST: crear un nuevo elemento/recurso en el servidor. `no es idepotente`
+2. actualizar totalmente un elemento ya existente o crearlo si no existe `si es idempotente`
+3. actualizar parcialmente un elemento/recurso `si y no`

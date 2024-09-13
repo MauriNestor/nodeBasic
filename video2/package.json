@@ -1,0 +1,20 @@
+{
+  "name": "video2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "https.js",
+  "scripts": {
+    "dev": "nodemon 1.https.js",
+    "dev2": "nodemon 2.routing.js",
+    "dev3": "nodemon 3.express.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "express": "4.19.2"
+  }
+}
