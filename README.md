@@ -286,3 +286,7 @@ app.listen(3000, () => {
 1. POST: crear un nuevo elemento/recurso en el servidor. `no es idepotente`
 2. actualizar totalmente un elemento ya existente o crearlo si no existe `si es idempotente`
 3. actualizar parcialmente un elemento/recurso `si y no`
+
+- video5
+
+La arquitectura MVC (Model-View-Controller) es un patrón de diseño que separa una aplicación en tres componentes principales: Modelo (Model), Vista (View), y Controlador (Controller). El objetivo es separar la lógica de negocio, la lógica de presentación y la interfaz de usuario para mejorar la organización, mantenibilidad y escalabilidad del software.
