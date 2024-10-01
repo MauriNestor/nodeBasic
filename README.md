@@ -290,3 +290,22 @@ app.listen(3000, () => {
 - video5
 
 La arquitectura MVC (Model-View-Controller) es un patrón de diseño que separa una aplicación en tres componentes principales: Modelo (Model), Vista (View), y Controlador (Controller). El objetivo es separar la lógica de negocio, la lógica de presentación y la interfaz de usuario para mejorar la organización, mantenibilidad y escalabilidad del software.
+
+### Componentes de MVC:
+- Modelo (Model):
+
+*Qué es*: Es la capa que representa la lógica de negocio y la gestión de datos de la aplicación.
+*Responsabilidad:* Gestionar y manipular los datos, las reglas de negocio, y la lógica de la aplicación. Es independiente de la interfaz de usuario.
+*Ejemplo:* En una aplicación de gestión de productos, el Modelo manejaría la estructura de un producto y las operaciones como crear, actualizar, o eliminar un 
+- producto en la base de datos.
+
+Vista (View):
+
+Qué es: Es la capa que representa la interfaz de usuario, es decir, lo que el usuario ve y con lo que interactúa.
+Responsabilidad: Mostrar los datos que el Modelo proporciona y reflejar los cambios que ocurren en la aplicación. No contiene lógica de negocio.
+Ejemplo: En una aplicación web, la Vista serían las páginas HTML, CSS, y JavaScript que muestran la lista de productos y permiten al usuario interactuar con ellos.
+Controlador (Controller):
+
+Qué es: Actúa como intermediario entre el Modelo y la Vista. Recibe las entradas del usuario a través de la Vista, las procesa y las envía al Modelo.
+Responsabilidad: Gestionar las interacciones del usuario, actualizar el Modelo según sea necesario y actualizar la Vista para reflejar los cambios.
+Ejemplo: Si un usuario hace clic en "Agregar Producto", el Controlador procesa la solicitud, comunica al Modelo para crear el nuevo producto y actualiza la Vista para mostrar el cambio.
