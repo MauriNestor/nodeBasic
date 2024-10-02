@@ -325,3 +325,6 @@ Ejemplo: Si un usuario hace clic en "Agregar Producto", el Controlador procesa l
 4. Instala pm2 para gestionar tu aplicación: `sudo npm install -g pm2`
 5. subir el proyecto al servidor: `git clone https://github.com/tu-usuario/tu-proyecto.git`
 6. Instalar dependencias: `npm install`
+7. Configura un Servidor Web (Nginx) como Proxy Inverso (Opcional pero Recomendado)
+8. Habilitar SSL (Opcional pero Importante)
+9. Monitoreo y Escalabilidad
