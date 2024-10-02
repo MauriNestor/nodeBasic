@@ -306,6 +306,13 @@ Responsabilidad: Mostrar los datos que el Modelo proporciona y reflejar los camb
 Ejemplo: En una aplicación web, la Vista serían las páginas HTML, CSS, y JavaScript que muestran la lista de productos y permiten al usuario interactuar con ellos.
 Controlador (Controller):
 
-Qué es: Actúa como intermediario entre el Modelo y la Vista. Recibe las entradas del usuario a través de la Vista, las procesa y las envía al Modelo.
+Actúa como intermediario entre el Modelo y la Vista. Recibe las entradas del usuario a través de la Vista, las procesa y las envía al Modelo.
 Responsabilidad: Gestionar las interacciones del usuario, actualizar el Modelo según sea necesario y actualizar la Vista para reflejar los cambios.
 Ejemplo: Si un usuario hace clic en "Agregar Producto", el Controlador procesa la solicitud, comunica al Modelo para crear el nuevo producto y actualiza la Vista para mostrar el cambio.
+
+
+### deployado de backend con node
+1. Crea un archivo `process.env` si no lo tienes, y configura las variables de entorno necesarias.
+2. Puedes elegir servicios como AWS EC2, DigitalOcean, Heroku, Vercel, o Railway.
+  
+    También puedes utilizar Docker para contenerizar tu aplicación y desplegarla en un servicio de contenedores como AWS Fargate o Google Cloud Run.
