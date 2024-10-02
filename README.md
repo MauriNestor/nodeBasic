@@ -316,3 +316,12 @@ Ejemplo: Si un usuario hace clic en "Agregar Producto", el Controlador procesa l
 2. Puedes elegir servicios como AWS EC2, DigitalOcean, Heroku, Vercel, o Railway.
   
     También puedes utilizar Docker para contenerizar tu aplicación y desplegarla en un servicio de contenedores como AWS Fargate o Google Cloud Run.
+3. Configura tu Servidor (Ejemplo con Ubuntu): Conéctate a tu servidor utilizando SSH: `ssh user@your-server-ip`
+  - Instala Node.js y npm si no están instalados: 
+  ```
+  sudo apt update
+  sudo apt install nodejs npm
+  ```
+4. Instala pm2 para gestionar tu aplicación: `sudo npm install -g pm2`
+5. subir el proyecto al servidor: `git clone https://github.com/tu-usuario/tu-proyecto.git`
+6. Instalar dependencias: `npm install`
