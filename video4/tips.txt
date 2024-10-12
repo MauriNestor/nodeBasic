@@ -1,0 +1,2 @@
+- evitar hacer esto en una bd
+   darle al usuario permisos de hacer sql inyections
