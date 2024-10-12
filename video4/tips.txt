@@ -1,3 +1,5 @@
 - evitar hacer esto en una bd
    darle al usuario permisos de hacer sql inyections
 - para arreglarlo : transformar a una cadena de texto, lo q no sera una cosulta y no se puede evaluar
+
+- orm son temporales, cada vez cambian y es mejor aprender los conceptos
