@@ -1,2 +1,3 @@
 - evitar hacer esto en una bd
    darle al usuario permisos de hacer sql inyections
+- para arreglarlo : transformar a una cadena de texto, lo q no sera una cosulta y no se puede evaluar
